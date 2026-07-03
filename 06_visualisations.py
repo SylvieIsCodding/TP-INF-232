@@ -1,16 +1,3 @@
-"""
-=========================================================
-INF232 - TP Analyse des données
-Fichier : 06_visualisations.py
-
-Auteur : EPOLLE NJIMAN MARIETTE ERICKA (23V2417)
-
-Rôle :
-    - Générer toutes les visualisations du projet
-    - Sauvegarder les figures dans le dossier figures/
-=========================================================
-"""
-
 import os
 import pandas as pd
 
@@ -20,20 +7,11 @@ matplotlib.use("Agg")  # IMPORTANT : pas d'interface graphique
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-# -------------------------------------------------------
-# CONFIGURATION
-# -------------------------------------------------------
-
 sns.set_theme(style="whitegrid")
 plt.rcParams["figure.figsize"] = (8, 5)
 
 os.makedirs("figures", exist_ok=True)
 
-
-# -------------------------------------------------------
-# CHARGEMENT DES DONNÉES
-# -------------------------------------------------------
 
 def load_data(path="data/eleves_theme_D.csv"):
     if not os.path.exists(path):
@@ -41,10 +19,6 @@ def load_data(path="data/eleves_theme_D.csv"):
 
     return pd.read_csv(path)
 
-
-# -------------------------------------------------------
-# Q1 : Distribution des notes
-# -------------------------------------------------------
 
 def graphique_q1(df):
 
@@ -70,11 +44,6 @@ def graphique_q1(df):
     plt.savefig("figures/q1_boxplot.png")
     plt.close()
 
-
-# -------------------------------------------------------
-# Q2 : Travail vs note
-# -------------------------------------------------------
-
 def graphique_q2(df):
 
     plt.figure()
@@ -94,10 +63,6 @@ def graphique_q2(df):
     plt.savefig("figures/q2_regression.png")
     plt.close()
 
-
-# -------------------------------------------------------
-# Q3 : Clustering
-# -------------------------------------------------------
 
 def graphique_q3(df, labels):
 
@@ -126,10 +91,6 @@ def graphique_q3(df, labels):
     plt.close()
 
 
-# -------------------------------------------------------
-# Q4 : Matrice de confusion
-# -------------------------------------------------------
-
 def graphique_q4(cm):
 
     if cm is None:
@@ -153,9 +114,6 @@ def graphique_q4(cm):
     plt.close()
 
 
-# -------------------------------------------------------
-# PIPELINE GLOBAL
-# -------------------------------------------------------
 
 def generer_toutes_les_figures(df, labels=None, cm=None):
 
@@ -165,10 +123,6 @@ def generer_toutes_les_figures(df, labels=None, cm=None):
     graphique_q3(df, labels)
     graphique_q4(cm)
 
-
-# -------------------------------------------------------
-# TEST
-# -------------------------------------------------------
 
 if __name__ == "__main__":
 
