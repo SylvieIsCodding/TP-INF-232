@@ -8,7 +8,7 @@ Ce fichier sert à préparer la graine utilisée pour générer les données.
 On commence par normaliser le nom du chef :
 - le nom est mis en majuscule ;
 - les accents et les caractères spéciaux sont supprimés ;
-- seuls les caractères alphanumériques et les espaces sont conservés.
+- seuls les caractères alphanumériques sont conservés.
 
 ```python
 def normaliser_nom(nom_chef):
